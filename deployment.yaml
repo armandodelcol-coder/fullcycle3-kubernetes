@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyserver
+  labels:
+    app: pyserver
+spec:
+  selector:
+    matchLabels:
+      app: pyserver    
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: "pyserver"
+    spec:
+      containers:
+        - name: pyserver
+          image: "adelcol/fullcycle3-k8s-class:latest"
